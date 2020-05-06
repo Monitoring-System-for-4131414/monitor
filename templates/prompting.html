@@ -1,0 +1,93 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>提示信息</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--提示信息-->
+<!--</body>-->
+<!--</html>-->
+
+{% extends 'common/base.html' %}
+{% block title %}
+    index
+{% endblock %}
+{% block main %}
+<div id="page-wrapper">
+  <div class="header">
+                        <h1 class="page-header">
+                           提示信息
+                        </h1>
+						<ol class="breadcrumb">
+					  <li><a href="#">主页</a></li>
+					  <li><a href="#">提示信息 </a></li>
+					  <li class="active">信息</li>
+					</ol>
+
+		</div>
+            <div id="page-inner">
+
+
+			<div class="row">
+
+			  <div class="col-md-12">
+
+				  <div class="card">
+	<div class="card-content">
+	   <div class="alert alert-success">
+									<strong>暂无注意事项。</strong>  今天还没有需要提醒信息。
+								</div>
+	</div>
+	<div class="card-action">
+	  <b>信息确认</b>
+	</div>
+                 </div>
+
+				  <div class="card">
+	<div class="card-content">
+	   <div class="alert alert-info">
+									<strong>注意！</strong>  宿舍卫生指数不达标，请尽快打扫。
+								</div>
+	</div>
+	<div class="card-action">
+	  <b>信息确认</b>
+	</div>
+                 </div>
+
+
+				  				  <div class="card">
+	<div class="card-content">
+	   <div class="alert alert-warning">
+									<strong>注意！</strong>  宿舍过于吵闹，请保持安静。
+								</div>
+	</div>
+	<div class="card-action">
+	  <b>信息确认</b>
+	</div>
+                 </div>
+
+
+				  				  				  <div class="card">
+	<div class="card-content">
+	   <div class="alert alert-danger">
+									<strong>注意！</strong>  宿舍目前没人，电源应该关闭。
+								</div>
+	</div>
+	<div class="card-action">
+	  <b>信息确认</b>
+	</div>
+                 </div>
+
+
+
+
+			</div>
+            </div>
+
+ </div>
+     </div>
+
+
+
+{% endblock %}
