@@ -5,7 +5,7 @@ from exts import db
 
 manager = Manager(app)
 #使用migrate绑定app和db
-
+db.init_app(app)
 migrate = Migrate(app,db)
 
 #添加迁移脚本的命令到manager中
