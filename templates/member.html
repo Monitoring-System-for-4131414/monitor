@@ -3,45 +3,53 @@
     member
 {% endblock %}
 {% block main %}
+
     <div id="page-wrapper">
 
-        <table>
-            <tbody>
-            <tr>
-                <td>用户名:</td>
-                <td><input name="" value="ABC" type="text"></td>
-            </tr>
-            <tr>
-                <td>性别:</td>
-                <td><input name="" value="男" type="text"></td>
-            </tr>
-            <tr>
-                <td>所属宿舍ID:</td>
-                <td><input name=""
-                           value="铁道学院xxx" type="text" size="40"></td>
-            </tr>
-            <tr>
-                <td>电话号码:</td>
-                <td><input name="" value="555-555-5555"
-                           type="text"></td>
-            </tr>
-            <tr>
-                <td>电子邮件地址:</td>
-                <td><input name=""
-                           value="xxxxx" type="text" size="40"></td>
-            </tr>
-            <tr>
-                <td>QQ号:</td>
-                <td><input name="" value="8888888"
-                           type="text" size="40"></td>
-            </tr>
-            <tr>
-                <td>提醒方法:</td>
-                <td><input name="" value="短信" type="text"></td>
-            </tr>
+        <div class="header">
+            <h1 class="page-header">
+                成员信息
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="/">主页</a></li>
+                <li class="active">成员信息</li>
+            </ol>
 
-            </tbody>
-        </table>
+        </div>
+
+
+        <div id="page-inner">
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <b>用户名: </b> <br>
+                            <br>
+                            <b>性别: </b> <br>
+                            <br>
+                            <b>电话号码: </b> <br>
+                            <br>
+                            <b>所属宿舍ID: </b> <br>
+                            <br>
+                            <b>电子邮件地址: </b> <br>
+                            <br>
+                            <b>QQ号: </b> <br>
+                            <br>
+                            <b>提醒方法: </b> <br>
+                            <br>
+                            <a href="/changemember/" class="waves-effect waves-light btn">修改</a>
+
+                            <div class="clearBoth"><br/></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
 
 
     </div>

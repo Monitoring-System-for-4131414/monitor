@@ -12,5 +12,9 @@ def index():
 def member():
     return render_template('member.html')
 
+@app.route('/changemember/')
+def changemember():
+    return render_template('changemember.html')
+
 if __name__ == '__main__':
     app.run()
