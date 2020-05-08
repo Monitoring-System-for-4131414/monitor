@@ -1,0 +1,65 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    index
+{% endblock %}
+{% block main %}
+    <div id="page-wrapper">
+        <div class="header">
+            <h1 class="page-header">
+                主页
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li class="active">Data</li>
+            </ol>
+
+        </div>
+        <div id="page-inner">
+
+            <!-- /. ROW  -->
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-action">
+                            <b>实时监控视频</b>
+                        </div>
+                        <div class="card-image">
+                            <div id="vedio_div" class="card-image">
+                                <!--vedio-->
+                                <video controls style="position:relative;width:100%">
+                                    <source src="data/demo.ovg">
+                                    <source src="data/demo.mp4">
+                                    <source src="data/demo.webm">
+                                    您的浏览器不支持，请升级您的浏览器
+                                </video>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- /. ROW  -->
+            <div class="fixed-action-btn horizontal click-to-toggle">
+                <a class="btn-floating btn-large red">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating red"><i class="material-icons">track_changes</i></a></li>
+                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+                    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+                    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                </ul>
+            </div>
+
+            <footer><p>All right reserved. Template by: <a
+                    href="https://webthemez.com/admin-template/">WebThemez.com</a></p>
+
+
+            </footer>
+        </div>
+    </div>
+{% endblock %}
