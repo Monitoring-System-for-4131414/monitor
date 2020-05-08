@@ -17,6 +17,7 @@
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="{{ url_for('static',filename='js/Lightweight-Chart/cssCharts.css') }}">
+
 </head>
 
 <body>
@@ -38,10 +39,93 @@
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown3"><i class="fa fa-tasks fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-				  <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>个人信息</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+                {% if user %}
+                     <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>{{ user.Username }}</b> <i class="material-icons right">arrow_drop_down</i></a></li>
+                     <li><a  class=" waves-effect waves-dark"  href="#!" ><i class="fa fa-user fa-fw"></i> <b>注销</b> </a></li>
+                {% else %}
+                      <li><a  class=" waves-effect waves-dark"  data-toggle="modal" data-target="#login" href="#!" ><i class="fa fa-user fa-fw"></i> <b>登录 </b> </a></li>
+                    <li><a  class=" waves-effect waves-dark"  data-toggle="modal" data-target="#register" href="#!" ><i class="fa fa-user fa-fw"></i> <b>注册</b> </a></li>
+
+                {% endif %}
+
+
             </ul>
         </nav>
 		<!-- Dropdown Structure -->
+    <!-- 注册窗口 -->
+    <div id="register" class="modal fade" tabindex="-1" style="width: 45% ;height : auto">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-title">
+                    <h1 class="text-center">注册</h1>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group" action="{{ url_for('user.regist') }}" method="post">
+                            <div class="form-group">
+                                <label for="">用户名</label>
+                                <input class="form-control" type="text" name="username" placeholder="6-15位字母或数字">
+                            </div>
+                            <div class="form-group">
+                                <label for="">密码</label>
+                                <input class="form-control" type="password" name="password" placeholder="至少6位字母或数字">
+                            </div>
+                            <div class="form-group">
+                                <label for="">再次输入密码</label>
+                                <input class="form-control" type="password" name="password1" placeholder="至少6位字母或数字">
+                            </div>
+                            <div class="form-group">
+                                <label for="">邮箱</label>
+                                <input class="form-control" type="email" name="email" placeholder="例如:123@123.com">
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-primary" type="submit">提交</button>
+                                <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                            </div>
+                            <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 登录窗口 -->
+    <div id="login" class="modal fade" style="width: 45% ;height : 48%">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-title">
+                    <h1 class="text-center">登录</h1>
+                </div>
+                <div class="modal-body">
+                    <form class="form-group" action="{{ url_for('user.login') }}" method="post">
+                            <div class="form-group">
+                                <label for="">邮箱</label>
+                                <input class="form-control" type="text" name="email" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="">密码</label>
+                                <input class="form-control" type="password" name="password" placeholder="">
+                            </div>
+                            <div class="text-right">
+                                <button class="btn btn-primary" type="submit">登录</button>
+                                <button class="btn btn-danger" data-dismiss="modal">取消</button>
+                            </div>
+                            <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <ul id="dropdown1" class="dropdown-content">
 <li><a href="#"><i class="fa fa-user fa-fw"></i> My Profile</a>
 </li>
@@ -219,14 +303,14 @@
                         <a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> 实时监控</a>
                     </li>
 					<li>
-                        <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 信息查看</a>
+                        <a href="{{ url_for('viewPlayback') }}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 信息查看</a>
                     </li>
                     <li>
                         <a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 预警信息</a>
                     </li>
 
                     <li>
-                        <a href="table.html" class="waves-effect waves-dark"><i class="fa fa-table"></i> 课表信息</a>
+                        <a href="{{ url_for('viewTimeTable') }}" class="waves-effect waves-dark"><i class="fa fa-table"></i> 课表信息</a>
                     </li>
                     <li>
                         <a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 提示信息 </a>
