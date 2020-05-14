@@ -62,7 +62,6 @@ def changemember():
         changeemail = request.form.get('email')
         changeQQ = request.form.get('QQ')
         ChangeCallMethod = request.form.get('CallMethod')
-        print(changename)
 
         changedata = {
             "username": changename,
@@ -73,6 +72,16 @@ def changemember():
             "QQ": changeQQ,
             "CallMethod": ChangeCallMethod
         }
+
+
+        user.Username = changename
+        user.Password = changepassword
+        user.Sex = changesex
+        user.DormitoryID = changedormitoryid
+        user.Phone = changephone
+        user.Email = changeemail
+        user.CallMethod = ChangeCallMethod
+        db.session.commit()
 
         return render_template('member.html',data = changedata)
 
