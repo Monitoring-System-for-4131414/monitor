@@ -38,6 +38,11 @@ def regist():
                 db.session.commit()
                 return redirect(url_for('index'))
 
+@user_blue.route('/logout/',methods=['GET','POST'])
+def logout():
+    session.pop('UserID')
+    return redirect(url_for('index'))
+
 
 @user_blue.context_processor
 def my_context_processor():
