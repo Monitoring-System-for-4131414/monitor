@@ -41,7 +41,7 @@
 				<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
                 {% if user %}
                      <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i class="fa fa-user fa-fw"></i> <b>{{ user.Username }}</b> <i class="material-icons right">arrow_drop_down</i></a></li>
-                     <li><a  class=" waves-effect waves-dark"  href="#!" ><i class="fa fa-user fa-fw"></i> <b>注销</b> </a></li>
+                     <li><a  class=" waves-effect waves-dark"  href="{{ url_for('user.logout') }}" ><i class="fa fa-user fa-fw"></i> <b>注销</b> </a></li>
                 {% else %}
                       <li><a  class=" waves-effect waves-dark"  data-toggle="modal" data-target="#login" href="#!" ><i class="fa fa-user fa-fw"></i> <b>登录 </b> </a></li>
                     <li><a  class=" waves-effect waves-dark"  data-toggle="modal" data-target="#register" href="#!" ><i class="fa fa-user fa-fw"></i> <b>注册</b> </a></li>
@@ -303,7 +303,7 @@
                         <a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> 实时监控</a>
                     </li>
 					<li>
-                        <a href="{{ url_for('viewPlayback') }}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 信息查看</a>
+                        <a href="{{ url_for('message.viewPlayback') }}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 信息查看</a>
                     </li>
                     <li>
                         <a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 预警信息</a>

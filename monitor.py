@@ -2,22 +2,20 @@ from flask import Flask,render_template, session
 import config
 from exts import db
 from app.User import user_blue
+from app.Message import message_blue
 from models import User
+from decorators import login_required
 
 app = Flask(__name__)
 app.config.from_object(config)
 db.init_app(app)
 
 app.register_blueprint(user_blue)
+app.register_blueprint(message_blue)
 # 进入主页
 @app.route('/',methods=['GET','POST'])
 def index():
     return render_template('index.html', UserID=session.get('UserID'))
-
-# 进入信息查看界面
-@app.route('/viewPlayback')
-def viewPlayback():
-    return render_template('information_playback.html')
 
 # 进入课表查看界面
 @app.route('/viewTimetable')

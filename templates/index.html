@@ -8,6 +8,7 @@
 
 {#增加主页内容#}
 {% block main %}
+    {% if user %}
     <div id="page-wrapper">
 		  <div class="header">
                         <h1 class="page-header">
@@ -152,4 +153,67 @@
             </div>
             <!-- /. PAGE INNER  -->
         </div>
+    {% else %}
+         <div id="page-wrapper">
+		  <div class="header">
+                        <h1 class="page-header">
+                           欢迎来到智能监控系统
+                        </h1>
+
+		</div>
+            <div id="page-inner">
+                <div class="row" style="display: none">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-action">
+                            Bar Chart
+                        </div>
+                        <div class="card-content">
+                            <div id="morris-bar-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="card-action">
+                            Area Chart
+                        </div>
+                        <div class="card-content">
+                            <div id="morris-area-chart"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+                 <!-- /. ROW  -->
+                <div class="row">
+
+                               <div class="col-md-12 col-sm-12 col-xs-12" style="display: none">
+                    <div class="card">
+                        <div class="card-action">
+                            本日温度与湿度数据
+                        </div>
+                        <div class="card-content">
+                            <div id="morris-line-chart"></div>
+                        </div>
+                    </div>
+                </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12" >
+                    <div class="card">
+                        <div class="card-action">
+                           <h2>你可以在登录后使用本系统</h2>
+                        </div>
+                        <div class="card-content">
+							<div id="morris-donut-chart"></div>
+                        </div>
+                    </div>
+                </div>
+
+           </div>
+                 <!-- /. ROW  -->
+				 <footer><p>感谢您的使用</p></footer>
+				</div>
+             <!-- /. PAGE INNER  -->
+            </div>
+        </div>
+    {% endif %}
 {% endblock %}

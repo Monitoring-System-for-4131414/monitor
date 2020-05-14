@@ -31,6 +31,7 @@ class Remain_Log(db.Model):
     type = db.Column(db.String(3), nullable=True)
     content = db.Column(db.String(255), nullable=False)
 
+
 class Envirment(db.Model):
     __tablename__ = 'envirment'
     dormitoryid = db.Column(db.String(125), primary_key=True, nullable=True)

@@ -176,7 +176,7 @@
 				 
       xkey: 'y',
       ykeys: ['a', 'b'],
-      labels: ['Total Income', 'Total Outcome'],
+      labels: ['湿度', '温度'],
       fillOpacity: 0.6,
       hideHover: 'auto',
       behaveLikeLine: true,
