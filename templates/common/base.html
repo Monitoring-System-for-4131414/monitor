@@ -306,14 +306,14 @@
                         <a href="{{ url_for('viewPlayback') }}" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> 信息查看</a>
                     </li>
                     <li>
-                        <a href="warning" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 预警信息</a>
+                        <a href="{{ url_for('warning.viewWarning') }}" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 预警信息</a>
                     </li>
 
                     <li>
                         <a href="{{ url_for('viewTimeTable') }}" class="waves-effect waves-dark"><i class="fa fa-table"></i> 课表信息</a>
                     </li>
                     <li>
-                        <a href="prompting" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 提示信息 </a>
+                        <a href="{{ url_for('prompting.viewPrompting') }}" class="waves-effect waves-dark"><i class="fa fa-edit"></i> 提示信息 </a>
                     </li>
 
 

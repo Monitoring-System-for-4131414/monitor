@@ -11,7 +11,7 @@
 
 {% extends 'common/base.html' %}
 {% block title %}
-    index
+    prompting
 {% endblock %}
 {% block main %}
 <div id="page-wrapper">
@@ -30,60 +30,43 @@
 
 
 			<div class="row">
+			  <div class="col-md-6">
 
-			  <div class="col-md-12">
+				  {% for p in promptingList %}
+				  {% if p.state==0 %}
+				   <div class="card">
+					   <div class="card-content">
+						   <div class="alert alert-success">
+							   <strong>  {{ p.title[p.type1]  }} </strong> {{ p.content[p.type2]  }}
+						   </div>
+					   </div>
+					   <div class="card-action">
+						   <a class="waves-effect waves-light btn" href="{{ url_for('prompting.infConfirm2',b= p.type2) }}">信息确认</a>
+					   </div>
+				   </div>
+				  {% endif %}
+				  {% endfor %}
 
-				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-success">
-									<strong>暂无注意事项。</strong>  今天还没有需要提醒信息。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
+			  </div>
 
-				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-info">
-									<strong>注意！</strong>  宿舍卫生指数不达标，请尽快打扫。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
-
-
-				  				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-warning">
-									<strong>注意！</strong>  宿舍过于吵闹，请保持安静。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
-
-
-				  				  				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-danger">
-									<strong>注意！</strong>  宿舍目前没人，电源应该关闭。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
-
-
-
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-action">
+						    <b>历史记录</b>
+						</div>
+						{% for p in promptingList %}
+						{% if p.state %}
+					        <div class="card-content">
+						       <div class="alert alert-success">
+							      <strong>  {{ p.title[p.type1]  }} </strong> {{ p.content[p.type2]  }}
+							   </div>
+				            </div>
+						{% endif %}
+				        {% endfor %}
+					</div>
+				</div>
 
 			</div>
-            </div>
 
  </div>
      </div>

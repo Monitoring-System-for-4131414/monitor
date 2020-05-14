@@ -11,7 +11,7 @@
 
 {% extends 'common/base.html' %}
 {% block title %}
-    index
+    warning
 {% endblock %}
 {% block main %}
 <div id="page-wrapper">
@@ -25,63 +25,48 @@
 					  <li class="active">信息</li>
 					</ol>
 
-		</div>
-            <div id="page-inner">
-
-
+  </div>
+	<div id="page-inner">
 			<div class="row">
+			  <div class="col-md-6">
 
-			  <div class="col-md-12">
-				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-success">
-									<strong>没有异常。</strong>  今天没有监测到意外事故发生。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
+				  {% for w in warningList %}
+				  {% if w.state==0 %}
+				   <div class="card">
+					   <div class="card-content">
+						   <div class="alert alert-success">
+							   <strong>  {{ w.title[w.type1]  }} </strong> {{ w.content[w.type2]  }}
+						   </div>
+					   </div>
+					   <div class="card-action">
+						   <a class="waves-effect waves-light btn" href="{{ url_for('warning.infConfirm',c= w.type2) }}">信息确认</a>
+					   </div>
+				   </div>
+				  {% endif %}
+				  {% endfor %}
 
-				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-info">
-									<strong>没有异常。</strong> 今天没有观测到陌生人员进入宿舍.
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
+			  </div>
 
+				<div class="col-md-6">
+					<div class="card">
+						<div class="card-action">
+						    <b>历史记录</b>
+						</div>
+						{% for w in warningList %}
+						{% if w.state %}
+					        <div class="card-content">
+						       <div class="alert alert-success">
+							      <strong>  {{ w.title[w.type1]  }} </strong> {{ w.content[w.type2]  }}
+							   </div>
+				            </div>
+						{% endif %}
+				        {% endfor %}
+					</div>
+				</div>
 
-				  				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-warning">
-									<strong>警告!</strong> 今天几时几分有陌生人员进入宿舍。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
-
-
-				  				  				  <div class="card">
-	<div class="card-content">
-	   <div class="alert alert-danger">
-									<strong>警告!</strong>  现在宿舍可能有意外事故发生。
-								</div>
-	</div>
-	<div class="card-action">
-	  <b>信息确认</b>
-	</div>
-                 </div>
 			</div>
-            </div>
-
- </div>
-     </div>
+	</div>
+</div>
 
 
 

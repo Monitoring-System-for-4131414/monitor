@@ -1,14 +1,20 @@
-from flask import Flask,render_template, session,url_for
+from flask import Flask,render_template, session,url_for,request,redirect
 import config
 from exts import db
 from app.User import user_blue
-from models import User
+from app.Warning import warning_blue
+from app.Prompting import prompting_blue
+from models import User,Remain
 
 app = Flask(__name__)
 app.config.from_object(config)
 db.init_app(app)
 
 app.register_blueprint(user_blue)
+app.register_blueprint(warning_blue)
+app.register_blueprint(prompting_blue)
+
+
 # 进入主页
 @app.route('/',methods=['GET','POST'])
 def index():
@@ -34,14 +40,6 @@ def my_context_processor():
         else:
             return {'user':User.query.filter(User.UserID == 1).first()}
     return {}
-
-@app.route('/warning')
-def warning():
-    return render_template('warning.html')
-
-@app.route('/prompting')
-def prompting():
-    return render_template('prompting.html')
 
 
 
