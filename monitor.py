@@ -1,4 +1,4 @@
-from flask import Flask,render_template, session
+from flask import Flask,render_template, session,redirect,url_for,request
 import config
 from exts import db
 from app.User import user_blue
@@ -14,13 +14,57 @@ app.register_blueprint(user_blue)
 def index():
     return render_template('index.html', UserID=session.get('UserID'))
 
-@app.route('/member/')
+@app.route('/member/',methods=['GET','POST'])
 def member():
-    return render_template('member.html')
+    user_id = session.get('UserID')
+    user = User.query.filter(User.UserID == user_id).first()
 
-@app.route('/changemember/')
+    if user:
+        username = user.Username
+        useremail = user.Email
+        data = {
+            "username": username,
+            "useremail": useremail
+        }
+
+        return render_template('member.html',data = data)
+    else:
+        return redirect('/')
+
+@app.route('/changemember/',methods=['GET','POST'])
 def changemember():
-    return render_template('changemember.html')
+    user_id = session.get('UserID')
+    user = User.query.filter(User.UserID == user_id).first()
+
+    username = user.Username
+    useremail = user.Email
+    data = {
+        "username": username,
+        "useremail": useremail
+    }
+
+    if request.method == "GET":
+        return render_template('changemember.html', data=data)
+    else:
+        changename = request.form.get('username')
+        changepassword = request.form.get('password')
+        changephone = request.form.get('phone')
+        changedormitoryid = request.form.get('dormitoryid')
+        changeemail = request.form.get('email')
+        changeQQ = request.form.get('QQ')
+        print(changename)
+
+        changedata = {
+            "username": changename,
+            "phone": changephone,
+            "dormitoryid": changedormitoryid,
+            "email": changeemail,
+            "QQ": changeQQ
+        }
+
+        return render_template('member.html',data = changedata)
+
+
 # 进入信息查看界面
 @app.route('/viewPlayback')
 def viewPlayback():

@@ -25,63 +25,60 @@
                     <div class="card">
 
                         <div class="card-content">
-                            <form class="col s12">
+                            <form class="col s12" action="{{ url_for('changemember') }}" method="post">
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="first_name" type="text" class="validate">
+                                        <input id="first_name" type="text" class="validate" name = "username" value= {{ data.username }} >
                                         <label for="first_name">用户名：</label>
                                     </div>
 
-                                    <form action="#">
-                                        <br>
-                                        <br>
-                                        <p>性别：
-                                            <input name="group1" type="radio" id="test1"/>
-                                            <label for="test1">男</label>
-                                            <input name="group1" type="radio" id="test2"/>
-                                            <label for="test2">女</label>
-                                        </p>
-                                    </form>
+                                    <br>
+                                    <br>
+                                    <p>性别：
+                                        <input name="group1" type="radio" id="test1"/>
+                                        <label for="test1">男</label>
+                                        <input name="group1" type="radio" id="test2"/>
+                                        <label for="test2">女</label>
+                                    </p>
 
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="password" type="password" class="validate">
+                                        <input id="password" type="password" class="validate" name = "password">
                                         <label for="password">密码：</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="first_name" type="text" class="validate">
+                                        <input id="first_name" type="text" class="validate" name = "phone">
                                         <label for="first_name">电话号码：</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="first_name" type="text" class="validate">
+                                        <input id="first_name" type="text" class="validate" name = "dormitoryid">
                                         <label for="first_name">所属宿舍ID:</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="email" type="email" class="validate">
-                                        <label for="email">电子邮件地址：</label>
+                                        <input id="email" type="email" class="validate" name = "email" value= {{ data.useremail }}>
+                                        <label for="email">电子邮件地址： </label>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="input-field col s6">
-                                        <input id="first_name" type="text" class="validate">
+                                        <input id="first_name" type="text" class="validate" name = "QQ">
                                         <label for="first_name">QQ号:</label>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <form action="#">
                                         <br>
                                         <br>
                                         <p>提醒方法：
@@ -90,11 +87,10 @@
                                             <input name="group2" type="radio" id="test4"/>
                                             <label for="test4">电子邮件</label>
                                         </p>
-                                    </form>
                                 </div>
 
                                 <div class="row" align="center">
-                                    <a href="" class="waves-effect waves-light btn">保存</a>
+                                    <button class="btn btn-primary" type="submit">保存</button>
                                 </div>
 
                             </form>
