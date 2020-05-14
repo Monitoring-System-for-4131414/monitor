@@ -73,7 +73,6 @@ def changemember():
             "CallMethod": ChangeCallMethod
         }
 
-
         user.Username = changename
         user.Password = changepassword
         user.Sex = changesex
