@@ -37,10 +37,18 @@ def changemember():
     user = User.query.filter(User.UserID == user_id).first()
 
     username = user.Username
+    sex = user.Sex
+    phone = user.Phone
+    dormitoryid = user.DormitoryID
     useremail = user.Email
+    CallMethod = user.CallMethod
     data = {
         "username": username,
-        "useremail": useremail
+        "sex": sex,
+        "phone": phone,
+        "dormitoryid": dormitoryid,
+        "email": useremail,
+        "CallMethod":CallMethod
     }
 
     if request.method == "GET":
@@ -48,18 +56,22 @@ def changemember():
     else:
         changename = request.form.get('username')
         changepassword = request.form.get('password')
+        changesex = request.form.get('sex')
         changephone = request.form.get('phone')
         changedormitoryid = request.form.get('dormitoryid')
         changeemail = request.form.get('email')
         changeQQ = request.form.get('QQ')
+        ChangeCallMethod = request.form.get('CallMethod')
         print(changename)
 
         changedata = {
             "username": changename,
+            "sex": changesex,
             "phone": changephone,
             "dormitoryid": changedormitoryid,
-            "email": changeemail,
-            "QQ": changeQQ
+            "useremail": changeemail,
+            "QQ": changeQQ,
+            "CallMethod": ChangeCallMethod
         }
 
         return render_template('member.html',data = changedata)
