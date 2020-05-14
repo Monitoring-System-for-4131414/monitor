@@ -21,10 +21,18 @@ def member():
 
     if user:
         username = user.Username
+        sex = user.Sex
+        phone = user.Phone
+        dormitoryid = user.DormitoryID
         useremail = user.Email
+        CallMethod = user.CallMethod
         data = {
             "username": username,
-            "useremail": useremail
+            "sex": sex,
+            "phone": phone,
+            "dormitoryid": dormitoryid,
+            "useremail": useremail,
+            "CallMethod": CallMethod
         }
 
         return render_template('member.html',data = data)
@@ -47,7 +55,7 @@ def changemember():
         "sex": sex,
         "phone": phone,
         "dormitoryid": dormitoryid,
-        "email": useremail,
+        "useremail": useremail,
         "CallMethod":CallMethod
     }
 
